@@ -11,10 +11,6 @@ from snippets import (
 
 class TestMain(unittest.TestCase):
 
-    def test_foo_has_baz(self):
-        self.assertEqual(
-            foo(), ['baz'])
-
     def test_lambdas_equals_19(self):
         lambdas = lambda_array()
         self.assertEqual(lambdas[0](10), 19)
@@ -34,6 +30,15 @@ class TestMain(unittest.TestCase):
     def test_average_paid_loans(self):
         json_file = read_file()
         self.assertEqual(average_paid_loans(json_file), 2681.2593672727276)
+
+    def test_foo_has_single_element(self):
+        self.assertEqual(
+            foo(), ['baz'])
+
+    def test_foo_has_single_element_after_second_call(self):
+        foo()
+        self.assertEqual(
+            foo(), ['baz'])
 
 
 if __name__ == '__main__':
